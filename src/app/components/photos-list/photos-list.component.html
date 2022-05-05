@@ -1,1 +1,5 @@
-<p>photos-list works!</p>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let item of mockedList; let i = index">
+    <img src="https://picsum.photos/id/{{i}}/200/300" alt="text" (click)="savePhoto(i)">
+  </mat-grid-tile>
+</mat-grid-list>
