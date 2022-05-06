@@ -1,6 +1,6 @@
-<mat-grid-list cols="2" rowHeight="300px">
-  <mat-grid-tile *ngFor="let item of mockedList; let i = index">
-    <img src="https://picsum.photos/id/{{i}}/200/300" alt="text" (click)="savePhoto(i)">
+<mat-grid-list cols="3" rowHeight="300px">
+  <mat-grid-tile *ngFor="let item of mockedList">
+    <img src="https://picsum.photos/id/{{item}}/200/300" alt="text" (click)="savePhoto(item)">
   </mat-grid-tile>
 </mat-grid-list>
 <div class="loading-wrapper">

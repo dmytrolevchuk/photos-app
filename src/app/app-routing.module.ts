@@ -6,11 +6,15 @@ import { PhotosListComponent } from "./components/photos-list/photos-list.compon
 const routes: Routes = [
   {
     path: 'favorites',
-    component: FavoritesListComponent
+    component: FavoritesListComponent,
+  },
+  {
+    path: 'photos/:id',
+    loadChildren: () => import('./feature/modules/single-photo/single-photo.module').then(m => m.SinglePhotoModule),
   },
   {
     path: '',
-    component: PhotosListComponent
+    component: PhotosListComponent,
   },
 ];
 

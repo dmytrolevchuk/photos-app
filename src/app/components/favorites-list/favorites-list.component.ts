@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PhotoStoreService } from '../../shared/services/photo-store.service';
 
 @Component({
   selector: 'app-favorites-list',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorites-list.component.scss']
 })
 export class FavoritesListComponent {
-  constructor() { }
 
+  favoritePhotos: number[] | null;
+
+  constructor(private store: PhotoStoreService) {
+    this.favoritePhotos = [...store.getDataFromLocalStorage()];
+  }
 }

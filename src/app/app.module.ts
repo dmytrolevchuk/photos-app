@@ -8,15 +8,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PhotosListComponent } from './components/photos-list/photos-list.component';
 import { FavoritesListComponent } from './components/favorites-list/favorites-list.component';
-import { SinglePhotoComponent } from './components/single-photo/single-photo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     PhotosListComponent,
-    FavoritesListComponent,
-    SinglePhotoComponent
+    FavoritesListComponent
   ],
   imports: [
     BrowserModule,

@@ -27,43 +27,31 @@ describe('PhotosListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be 10 images at the starting point', () => {
+  it('should be 15 images at the starting point', () => {
     dePhotos = fixture.debugElement.queryAll(By.css('mat-grid-list img'));
-    expect(dePhotos.length).toBe(10);
+    expect(dePhotos.length).toBe(15);
   })
 
   it('should not be loading icon at the start', () => {
-    // const container = fixture.debugElement.query(By.css('mat-grid-list'));
-    //
-    // container.nativeElement.scrollLeft = 50;
-    // expect(container.nativeElement.scrollLeft).toEqual(50);
     dePhotos = fixture.debugElement.queryAll(By.css('img[src="/assets/images/loading.png"]'));
     expect(dePhotos.length).toBe(0);
-    // window.dispatchEvent(new Event("scroll"));
-    // window.scrollTo(0 , 50);
   })
 
   it('should be loading icon after scrolling', () => {
-    // const container = fixture.debugElement.query(By.css('mat-grid-list'));
-    //
-    // container.nativeElement.scrollLeft = 50;
-    // expect(container.nativeElement.scrollLeft).toEqual(50);
     component.loadPhotos();
     fixture.detectChanges();
     deIcon = fixture.debugElement.query(By.css('img[src="/assets/images/loading.png"]'));
-    expect(deIcon).toBeDefined();
-
+    expect(deIcon).toBeTruthy();
   })
 
-  it('should not be loading icon after timeout and be 20 photos', fakeAsync(() => {
+  it('should not be loading icon after timeout and be 30 photos', fakeAsync(() => {
     component.loadPhotos();
     fixture.detectChanges();
-    tick(4000);
+    tick(1000);
     fixture.detectChanges();
     deIcon = fixture.debugElement.query(By.css('img[src="/assets/images/loading.png"]'));
     expect(deIcon).toBeNull();
     dePhotos = fixture.debugElement.queryAll(By.css('mat-grid-list img'));
-    expect(dePhotos.length).toBe(20);
-
+    expect(dePhotos.length).toBe(30);
   }))
 });
